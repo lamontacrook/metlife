@@ -112,7 +112,40 @@ export default async function decorate(block) {
     const navSections = nav.querySelector('.nav-sections');
     if (navSections) {
       navSections.querySelectorAll(':scope > ul > li').forEach((navSection) => {
-        if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
+        if (navSection.querySelector('ul')) {
+          navSection.classList.add('nav-drop');
+
+          const leftSpan = document.createElement('span');
+          leftSpan.classList.add('left-span');
+          const leftLi = document.createElement('li');
+          const leftDrop = document.createElement('div');
+          leftLi.append(leftDrop);
+          leftSpan.append(leftLi);
+          const leftText = document.createElement('span');
+          leftText.classList.add('left-text');
+          leftDrop.append(leftText);
+
+          const rightSpan = document.createElement('span');
+          rightSpan.classList.add('right-span');
+          let dash = false;
+          navSection.querySelectorAll('ul>li').forEach((li) => {
+            if (li.innerHTML.trim() === '<hr>') {
+              li.remove();
+              dash = true;
+              return;
+            }
+            if (dash) {
+              if (li.querySelector('picture')) leftDrop.prepend(li.querySelector('picture'));
+              else leftText.innerHTML += `<p>${li.innerHTML.trim()}</p>`;
+              li.remove();
+            } else {
+              rightSpan.append(li);
+            }
+          });
+          console.log(leftSpan);
+          navSection.querySelector('ul').append(leftSpan);
+          navSection.querySelector('ul').append(rightSpan);
+        }
         navSection.addEventListener('click', () => {
           if (isDesktop.matches) {
             const expanded = navSection.getAttribute('aria-expanded') === 'true';

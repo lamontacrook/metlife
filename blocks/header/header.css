@@ -15,7 +15,7 @@ header nav {
   align-items: center;
   gap: 0 2em;
   margin: auto;
-  max-width: 1264px;
+  max-width: var(--nav-max-width);
   height: var(--nav-height);
   padding: 0 1rem;
   font-family: var(--body-font-family);
@@ -186,6 +186,10 @@ header nav .nav-sections ul > li > ul > li {
   font-weight: 500;
 }
 
+header nav .nav-sections > ul > li[aria-expanded="true"] > ul > span.left-span {
+  display: none;
+}
+
 @media (min-width: 900px) {
   header nav .nav-sections {
     display: block;
@@ -228,6 +232,8 @@ header nav .nav-sections ul > li > ul > li {
     gap: 2em;
     margin: 0;
     font-size: var(--body-font-size-xs);
+    position: relative;
+    justify-content: end;
   }
 
   header nav .nav-sections > ul > li {
@@ -242,26 +248,33 @@ header nav .nav-sections ul > li > ul > li {
   }
 
   header nav .nav-sections > ul > li[aria-expanded="true"] > ul {
-    display: block;
-    position: absolute;
-    left: -1em;
-    width: 200px;
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    width: 100%;
+    left: 0;
     margin-top: 12px;
     padding: 1em;
     background-color: var(--highlight-background-color);
     white-space: initial;
   }
 
-  header nav .nav-sections > ul > li > ul::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: 8px;
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid var(--highlight-background-color);
+  header nav .nav-sections > ul > li[aria-expanded="true"] > ul > span.left-span {
+    display: unset;
+  }
+
+  header nav .nav-sections > ul > li[aria-expanded="true"] > ul > span.left-span > li > div {
+    display: flex;
+    flex-direction: row;
+  }
+
+  header nav .nav-sections > ul > li[aria-expanded="true"] > ul > span.left-span img {
+    width: auto;
+    max-height: 343px;
+  }
+
+  header nav span.left-span .left-text p:first-of-type {
+    font-size: var(--heading-font-size-m);
   }
 
   header nav .nav-sections > ul > li > ul > li {
@@ -272,4 +285,9 @@ header nav .nav-sections ul > li > ul > li {
 /* tools */
 header nav .nav-tools {
   grid-area: tools;
+}
+
+header nav .nav-tools img {
+  width: auto;
+  height: 76px;
 }
