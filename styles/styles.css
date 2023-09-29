@@ -16,11 +16,11 @@
   --link-hover-color: #136ff6;
   --background-color: #fff;
   --overlay-background-color: #eee;
-  --highlight-background-color: #ccc;
+  --highlight-background-color: #F4F7F8;
   --text-color: #000;
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback;
+  --body-font-family: metlifecircular, roboto, roboto-fallback;
   --heading-font-family: var(--body-font-family);
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
 
@@ -41,7 +41,13 @@
   --nav-height: 72px;
 
   /* nav max width */
-  --nav-max-width: unset;
+  --nav-max-width: 1350px;
+
+  /* nav sizes */
+  --nav-font-size: 12px;
+  --nav-line-height: 13px;
+  --nav-font-weight: 500;
+  --nav-text-transform: uppercase;
 
 }
 

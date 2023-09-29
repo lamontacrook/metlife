@@ -85,6 +85,31 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   }
 }
 
+async function fetchPanels() {
+  const panelsObj = {};
+  const { href } = window.location;
+  const panels = new URL(`${href}nav-panels.plain.html`);
+  const resp = await fetch(panels);
+  if (resp.ok) {
+    const html = await resp.text();
+    const div = document.createElement('div');
+    div.innerHTML = html;
+    [...div.children].forEach((elem) => {
+      const section = elem.querySelector('.section-metadata');
+      const key = section.querySelector('.section-metadata > div > div:last-child').textContent;
+      section.remove();
+      const content = document.createElement('div');
+      content.classList.add('panel-content');
+      elem.querySelectorAll('div>:not(:first-child)').forEach((item) => {
+        content.append(item);
+      });
+      elem.append(content);
+      panelsObj[key] = elem;
+    });
+  }
+  return panelsObj;
+}
+
 /**
  * decorates the header, mainly the nav
  * @param {Element} block The header block element
@@ -109,40 +134,26 @@ export default async function decorate(block) {
       if (section) section.classList.add(`nav-${c}`);
     });
 
+    const panels = await fetchPanels();
+
     const navSections = nav.querySelector('.nav-sections');
     if (navSections) {
       navSections.querySelectorAll(':scope > ul > li').forEach((navSection) => {
         if (navSection.querySelector('ul')) {
           navSection.classList.add('nav-drop');
-
+          const key = navSection.textContent.split('\n').shift().toLowerCase().replace(' ', '-');
           const leftSpan = document.createElement('span');
           leftSpan.classList.add('left-span');
-          const leftLi = document.createElement('li');
-          const leftDrop = document.createElement('div');
-          leftLi.append(leftDrop);
-          leftSpan.append(leftLi);
-          const leftText = document.createElement('span');
-          leftText.classList.add('left-text');
-          leftDrop.append(leftText);
-
+          leftSpan.append(panels[key]);
           const rightSpan = document.createElement('span');
           rightSpan.classList.add('right-span');
-          let dash = false;
           navSection.querySelectorAll('ul>li').forEach((li) => {
             if (li.innerHTML.trim() === '<hr>') {
               li.remove();
-              dash = true;
               return;
             }
-            if (dash) {
-              if (li.querySelector('picture')) leftDrop.prepend(li.querySelector('picture'));
-              else leftText.innerHTML += `<p>${li.innerHTML.trim()}</p>`;
-              li.remove();
-            } else {
-              rightSpan.append(li);
-            }
+            rightSpan.append(li);
           });
-          console.log(leftSpan);
           navSection.querySelector('ul').append(leftSpan);
           navSection.querySelector('ul').append(rightSpan);
         }

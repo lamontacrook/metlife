@@ -170,12 +170,12 @@ header nav[aria-expanded="true"] .nav-sections {
 header nav .nav-sections ul  {
   list-style: none;
   padding-left: 0;
-  font-size: var(--body-font-size-s);
   font-weight: 500;
 }
 
 header nav .nav-sections ul > li {
-  font-weight: 700;
+  font-size: var(--nav-font-size);
+  font-weight: var(--nav-font-weight);
 }
 
 header nav .nav-sections ul > li > ul {
@@ -211,14 +211,14 @@ header nav .nav-sections > ul > li[aria-expanded="true"] > ul > span.left-span {
     content: '';
     display: inline-block;
     position: absolute;
-    top: .5em;
+    top: .2em;
     right: 2px;
     transform: rotate(135deg);
     width: 6px;
     height: 6px;
-    border: 2px solid currentcolor;
+    border: 1px solid currentcolor;
     border-radius: 0 1px 0 0;
-    border-width: 2px 2px 0 0;
+    border-width: 1px 1px 0 0;
   }
 
   header nav .nav-sections .nav-drop[aria-expanded="true"]::after {
@@ -253,19 +253,30 @@ header nav .nav-sections > ul > li[aria-expanded="true"] > ul > span.left-span {
     position: fixed;
     width: 100%;
     left: 0;
-    margin-top: 12px;
-    padding: 1em;
+    margin-top: 26px;
     background-color: var(--highlight-background-color);
     white-space: initial;
   }
 
   header nav .nav-sections > ul > li[aria-expanded="true"] > ul > span.left-span {
     display: unset;
+    width: 65%;
+    padding: 0;
+    margin: 0;
   }
 
-  header nav .nav-sections > ul > li[aria-expanded="true"] > ul > span.left-span > li > div {
+  header nav .nav-sections > ul > li[aria-expanded="true"] > ul > span {
+    margin: 10px 0;
+  }
+
+  header nav .nav-sections > ul > li[aria-expanded="true"] > ul > span.left-span > div {
     display: flex;
     flex-direction: row;
+  }
+
+  header nav .nav-sections > ul > li[aria-expanded="true"] > ul > span.left-span > div > div {
+    max-width: 470px;
+    padding: 26px
   }
 
   header nav .nav-sections > ul > li[aria-expanded="true"] > ul > span.left-span img {
@@ -273,8 +284,10 @@ header nav .nav-sections > ul > li[aria-expanded="true"] > ul > span.left-span {
     max-height: 343px;
   }
 
-  header nav span.left-span .left-text p:first-of-type {
-    font-size: var(--heading-font-size-m);
+  header nav span.right-span {
+    width: 35%;
+    padding: 60px;
+    border-left: 0.8px solid black;
   }
 
   header nav .nav-sections > ul > li > ul > li {
@@ -289,5 +302,11 @@ header nav .nav-tools {
 
 header nav .nav-tools img {
   width: auto;
-  height: 76px;
+  height: 56px;
+}
+
+header nav h2 {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 500;
 }
