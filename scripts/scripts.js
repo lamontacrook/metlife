@@ -11,9 +11,61 @@ import {
   waitForLCP,
   loadBlocks,
   loadCSS,
+  toClassName,
+  getMetadata,
 } from './aem.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
+
+// Define the custom audiences mapping for experimentation
+const EXPERIMENTATION_CONFIG = {
+  audiences: {
+    device: {
+      mobile: () => window.innerWidth < 600,
+      desktop: () => window.innerWidth >= 600,
+    },
+    visitor: {
+      new: () => !localStorage.getItem('franklin-visitor-returning'),
+      returning: () => !!localStorage.getItem('franklin-visitor-returning'),
+    },
+  },
+};
+
+/**
+ * Determine if we are serving content for the block-library, if so don't load the header or footer
+ * @returns {boolean} True if we are loading block library content
+ */
+export function isBlockLibrary() {
+  return window.location.pathname.includes('block-library');
+}
+
+/**
+ * Convience method for creating tags in one line of code
+ * @param {string} tag Tag to create
+ * @param {object} attributes Key/value object of attributes
+ * @param {HTMLElement | HTMLElement[] | string} children Child element
+ * @returns {HTMLElement} The created tag
+ */
+export function createTag(tag, attributes, children) {
+  const element = document.createElement(tag);
+  if (children) {
+    if (children instanceof HTMLElement
+      || children instanceof SVGElement
+      || children instanceof DocumentFragment) {
+      element.append(children);
+    } else if (Array.isArray(children)) {
+      element.append(...children);
+    } else {
+      element.insertAdjacentHTML('beforeend', children);
+    }
+  }
+  if (attributes) {
+    Object.entries(attributes).forEach(([key, val]) => {
+      element.setAttribute(key, val);
+    });
+  }
+  return element;
+}
 
 /**
  * Builds hero block and prepends to main in a new section.
@@ -72,6 +124,15 @@ export function decorateMain(main) {
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
+
+  // load experiments
+  const experiment = toClassName(getMetadata('experiment'));
+  const instantExperiment = getMetadata('instant-experiment');
+  if (instantExperiment || experiment) {
+    const { runExperiment } = await import('./experimentation/index.js');
+    await runExperiment(experiment, instantExperiment, EXPERIMENTATION_CONFIG);
+  }
+
   const main = doc.querySelector('main');
   if (main) {
     decorateMain(main);
@@ -110,6 +171,27 @@ async function loadLazy(doc) {
   sampleRUM('lazy');
   sampleRUM.observe(main.querySelectorAll('div[data-block-name]'));
   sampleRUM.observe(main.querySelectorAll('picture > img'));
+
+  // Load experimentation preview overlay
+  if (window.location.hostname === 'localhost' || window.location.hostname.endsWith('.hlx.page')) {
+    const preview = await import(`${window.hlx.codeBasePath}/tools/preview/preview.js`);
+    await preview.default();
+    if (window.hlx.experiment) {
+      const experimentation = await import(`${window.hlx.codeBasePath}/tools/preview/experimentation.js`);
+      experimentation.default();
+    }
+  }
+
+  // Mark customer as having viewed the page once
+  localStorage.setItem('franklin-visitor-returning', true);
+
+  const context = {
+    getMetadata,
+    toClassName,
+  };
+  // eslint-disable-next-line import/no-relative-packages
+  const { initConversionTracking } = await import('../plugins/rum-conversion/src/index.js');
+  await initConversionTracking.call(context, document);
 }
 
 /**
