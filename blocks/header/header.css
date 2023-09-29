@@ -50,13 +50,21 @@ header nav[aria-expanded="true"] {
 
 header nav p {
   margin: 0;
-  line-height: 1;
+  line-height: 1.4;
+}
+
+header nav p:has(picture) {
+  line-height: 0;
 }
 
 header nav a:any-link {
   color: currentcolor;
+  line-height: 22px;
 }
 
+header nav .nav-drop a:any-link {
+  padding-left: 10px;
+}
 /* hamburger */
 header nav .nav-hamburger {
   grid-area: hamburger;
@@ -170,12 +178,12 @@ header nav[aria-expanded="true"] .nav-sections {
 header nav .nav-sections ul  {
   list-style: none;
   padding-left: 0;
-  font-weight: 500;
+  /* font-weight: 500; */
 }
 
 header nav .nav-sections ul > li {
   font-size: var(--nav-font-size);
-  font-weight: var(--nav-font-weight);
+  /* font-weight: var(--nav-font-weight); */
 }
 
 header nav .nav-sections ul > li > ul {
@@ -183,7 +191,8 @@ header nav .nav-sections ul > li > ul {
 }
 
 header nav .nav-sections ul > li > ul > li {
-  font-weight: 500;
+  /* font-weight: 500; */
+  height: 26px;
 }
 
 header nav .nav-sections > ul > li[aria-expanded="true"] > ul > span.left-span {
@@ -205,6 +214,14 @@ header nav .nav-sections > ul > li[aria-expanded="true"] > ul > span.left-span {
     position: relative;
     padding-right: 16px;
     cursor: pointer;
+  }
+
+  header nav a:any-link {
+    line-height: 28px;
+  }
+  
+  header nav .nav-drop a:any-link {
+    padding-left: unset;
   }
 
   header nav .nav-sections .nav-drop::after {
@@ -231,15 +248,15 @@ header nav .nav-sections > ul > li[aria-expanded="true"] > ul > span.left-span {
     display: flex;
     gap: 2em;
     margin: 0;
-    font-size: var(--body-font-size-xs);
+    /* font-size: var(--body-font-size-xs); */
     position: relative;
     justify-content: end;
+    line-height: 18px;
   }
 
   header nav .nav-sections > ul > li {
     flex: 0 1 auto;
     position: relative;
-    font-weight: 500;
   }
 
   header nav .nav-sections > ul > li > ul {
