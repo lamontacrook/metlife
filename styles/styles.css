@@ -16,11 +16,11 @@
   --link-hover-color: #136ff6;
   --background-color: #fff;
   --overlay-background-color: #eee;
-  --highlight-background-color: #ccc;
+  --highlight-background-color: #F4F7F8;
   --text-color: #000;
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback;
+  --body-font-family: metlifecircular, roboto, roboto-fallback;
   --heading-font-family: var(--body-font-family);
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
 
@@ -28,6 +28,7 @@
   --body-font-size-m: 22px;
   --body-font-size-s: 18px;
   --body-font-size-xs: 16px;
+  --body-font-size-xxs: 14px;
 
   /* heading sizes */
   --heading-font-size-xxl: 48px;
@@ -38,7 +39,16 @@
   --heading-font-size-xs: 18px;
 
   /* nav height */
-  --nav-height: 64px;
+  --nav-height: 72px;
+
+  /* nav max width */
+  --nav-max-width: 1350px;
+
+  /* nav sizes */
+  --nav-font-size: 12px;
+  --nav-line-height: 13px;
+  --nav-font-weight: 500;
+  --nav-text-transform: uppercase;
 
 }
 
@@ -149,7 +159,7 @@ a.button:any-link, button {
   padding: 5px 30px;
   text-align: center;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 400;
   cursor: pointer;
   color: var(--background-color);
   background-color: var(--link-color);
@@ -158,6 +168,7 @@ a.button:any-link, button {
   overflow: hidden;
   text-overflow: ellipsis;
   border-radius: 30px;
+  font-size: var(--body-font-size-xxs);
 }
 
 a.button:hover, a.button:focus, button:hover, button:focus  {
