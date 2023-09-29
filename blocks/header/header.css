@@ -65,6 +65,7 @@ header nav a:any-link {
 header nav .nav-drop a:any-link {
   padding-left: 10px;
 }
+
 /* hamburger */
 header nav .nav-hamburger {
   grid-area: hamburger;
@@ -178,12 +179,10 @@ header nav[aria-expanded="true"] .nav-sections {
 header nav .nav-sections ul  {
   list-style: none;
   padding-left: 0;
-  /* font-weight: 500; */
 }
 
 header nav .nav-sections ul > li {
   font-size: var(--nav-font-size);
-  /* font-weight: var(--nav-font-weight); */
 }
 
 header nav .nav-sections ul > li > ul {
@@ -248,7 +247,6 @@ header nav .nav-sections > ul > li[aria-expanded="true"] > ul > span.left-span {
     display: flex;
     gap: 2em;
     margin: 0;
-    /* font-size: var(--body-font-size-xs); */
     position: relative;
     justify-content: end;
     line-height: 18px;
