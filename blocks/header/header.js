@@ -87,13 +87,12 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
 
 async function fetchPanels() {
   const panelsObj = {};
-  const { href } = window.location;
   const navMeta = getMetadata('nav');
   const navPath = navMeta ? new URL(navMeta).pathname : '/nav';
   const resp = await fetch(`${navPath}-panels.plain.html`);
   if (resp.ok) {
     const html = await resp.text();
-   const div = document.createElement('div');
+    const div = document.createElement('div');
     div.innerHTML = html;
     [...div.children].forEach((elem) => {
       const section = elem.querySelector('.section-metadata');
