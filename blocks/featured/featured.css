@@ -1,19 +1,24 @@
 main .featured {
-  background-color: var(--accent-background-color);
+  background: linear-gradient(90deg, var(--accent-background-color) 70%, transparent 30%);
   border-left: 15px solid;
   border-image-slice: 1;
   border-image-source: linear-gradient(to top,#a4ce4e,#0090da);
+  max-height: 399px;
 }
 
 main .featured div {
   display: flex;
   flex-direction: row;
-  padding: 50px 30px;
+  padding: 20px;
 }
 
 main .featured > div > div {
   display: flex;
   flex-direction: column;
+}
+
+main .featured h2 {
+  margin: unset;
 }
 
 /* Font Details:
