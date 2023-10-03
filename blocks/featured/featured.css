@@ -1,9 +1,15 @@
 main .featured {
-  background: linear-gradient(90deg, var(--accent-background-color) 70%, transparent 30%);
+  background: linear-gradient(90deg, var(--accent-background-color) 70%, transparent 30%); 
   border-left: 15px solid;
   border-image-slice: 1;
   border-image-source: linear-gradient(to top,#a4ce4e,#0090da);
   max-height: 399px;
+}
+
+main .featured.right {
+  background: linear-gradient(90deg, transparent 30%, var(--accent-background-color) 70%);
+  border-right: 15px solid;
+  border-left: unset;
 }
 
 main .featured div {
@@ -21,13 +27,14 @@ main .featured h2 {
   margin: unset;
 }
 
-/* Font Details:
+main .featured picture {
+  min-width: 620px;
+  max-width: 650px;
+}
 
-font-family: MetLifeCircular, Arial, Helvetica, "sans-serif"
-font-size: 32px
-font-style: normal
-font-variant-caps: normal
-font-variant-east-asian: normal
-font-variant-ligatures: normal
-font-variant-numeric: normal
-font-weight: 500 */
+main .featured img {
+  object-fit: cover;
+  max-height: 346px;
+  min-height: 294px;
+  width: 100%
+}

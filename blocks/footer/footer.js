@@ -18,7 +18,17 @@ export default async function decorate(block) {
     // decorate footer DOM
     const footer = document.createElement('div');
     footer.innerHTML = html;
+    const leftDiv = document.createElement('div');
+    leftDiv.classList.add('left');
+    const rightDiv = document.createElement('div');
+    rightDiv.classList.add('right');
 
+    leftDiv.append(footer.querySelector('div > div > p:has(picture)'));
+    footer.querySelectorAll('p').forEach((item) => {
+      rightDiv.append(item);
+    });
+    footer.querySelector('div > div').append(leftDiv);
+    footer.querySelector('div > div').append(rightDiv);
     decorateIcons(footer);
     block.append(footer);
   }
