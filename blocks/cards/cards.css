@@ -1,3 +1,19 @@
+.section.cards-container > div > p::after {
+  content: "----------";
+  color: transparent;
+  margin-left: 20px;
+  height: .2px;
+  width: 76px;
+  margin-top: 20px;
+  background: linear-gradient(
+    to bottom,
+    transparent 8px,
+    #008edd 9px,
+    #a2cf42 1px,
+    transparent 10px
+  );
+}
+
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -9,7 +25,7 @@
 
 .cards > ul > li {
   border: 1px solid var(--highlight-background-color);
-  background-color: var(--background-color)
+  background-color: var(--highlight-background-color);
 }
 
 .cards .cards-card-body {
@@ -18,6 +34,10 @@
 
 .cards .cards-card-image {
   line-height: 0;
+  border-bottom: 12px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to right, #008edd, #008edd 0%, #a2cf42 99%, var(--highlight-background-color) 2%);
+  border-image-width: 180px;
 }
 
 .cards .cards-card-body > *:first-child {
@@ -26,6 +46,8 @@
 
 .cards > ul > li img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
+  min-height: 212px;
+  max-height: 212px;
 }

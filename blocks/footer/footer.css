@@ -11,4 +11,20 @@ footer .footer {
 
 footer .footer p {
   margin: 0;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+footer .footer > div > div {
+  display: flex;
+}
+
+footer .footer .left {
+  padding: 0 50px 0 0;
+}
+
+footer .footer img {
+  width: 132px;
+  height: auto;
+  object-fit: cover;
 }

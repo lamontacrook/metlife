@@ -1,15 +1,21 @@
 export default function decorate(block) {
   const h1 = block.querySelector('h1');
   const picture = block.querySelector('picture');
+  const h2 = block.querySelector('h2');
+  const p = block.querySelectorAll('p');
+  const heroContent = document.createElement('div');
+  heroContent.classList.add('hero-content');
+  if (h1) heroContent.append(h1);
+  if (h2) heroContent.append(h2);
+  p.forEach((elem) => {
+    heroContent.append(elem);
+  });
+
+  block.querySelector('div').append(picture);
+  block.querySelector('div').append(heroContent);
+  block.querySelector('div').querySelector('div').remove();
+
   const blue = document.createElement('div');
   blue.classList.add('blue-box');
-  blue.innerHTML = '<h2>hello</h2>';
-  // eslint-disable-next-line no-bitwise
-  if (h1 && picture && (h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_PRECEDING)) {
-    // const section = document.createElement('div');
-    // const hero = buildBlock('hero-content', { elems: [picture, h1] });
-    // section.append(hero);
-    block.querySelector('div').append(blue);
-    // block.prepend(section);
-  }
+  block.append(blue);
 }
