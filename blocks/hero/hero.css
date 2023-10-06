@@ -37,7 +37,8 @@ main .hero .hero-content p {
   color: white;
   font-size: 16px;
   font-weight: 400;
-  margin: auto;
+  margin: 12px auto;
+  padding: 0;
 }
 
 main .hero picture {
@@ -71,13 +72,17 @@ main .hero .blue-box {
   transform: translate(-50%, -50%);
 }
 
+.large-hero .hero .blue-box {
+  width: 95%;
+  top: 53%;
+  height: 539px;
+}
+
 .large-hero .hero .hero-content h1 {
-  line-height: unset;
-  font-size: 28px;
-  margin: auto;
+  line-height: 30px;
+  font-size: 24px;
+  margin: 10px auto;
   position: unset;
-  left: unset;
-  top: unset;
   transform: unset;
   width: unset;
 }
@@ -89,7 +94,7 @@ main .hero .blue-box {
   width: 90%;
   margin: auto;
   left: 50%;
-  top: 67%;
+  top: 57%;
   transform: translate(-50%, -50%);
 }
 
@@ -103,8 +108,10 @@ main .hero .blue-box {
   height: auto;
 }
 
-.large-hero .hero .blue-box {
-  height: 539px;
+.large-hero .hero .hero-content a:any-link {
+  color: white;
+  text-decoration: underline;
+  padding: 5px;
 }
 
 @media (min-width: 900px) {
@@ -166,6 +173,10 @@ main .hero .blue-box {
     z-index: 0;
   }
 
+  .large-hero .hero .blue-box {
+    top:0;
+  } 
+
   .large-hero .hero .hero-content h1 {
     font-size: 44px;
     line-height: 50px;
@@ -176,12 +187,6 @@ main .hero .blue-box {
     font-size: 18px;
     line-height: 30px;
     margin-bottom: 10px;
-  }
-
-  .large-hero .hero .hero-content a:any-link {
-    color: white;
-    text-decoration: underline;
-    padding: 5px;
   }
 
   .large-hero .hero .hero-content {

@@ -249,6 +249,21 @@ main .section {
   padding: 0;
 }
 
+main .default-content-wrapper h2 {
+  font-family: georgia, times, serif;
+  font-size: 28px;
+  line-height: 36px;
+}
+
+main .default-content-wrapper p {
+  font-size: 16px;
+  line-height: 30px;
+}
+
+main .default-content-wrapper {
+  padding: 0 18px;
+}
+
 @media (min-width: 600px) {
   main .section {
     padding: 34px 20px;
