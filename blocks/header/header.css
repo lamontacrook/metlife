@@ -321,7 +321,7 @@ header nav .nav-tools img {
 }
 
 header nav h2 {
-  font-size: 32px;
+  font-size: var(--heading-font-size-l);
   line-height: 40px;
   font-weight: 500;
 }

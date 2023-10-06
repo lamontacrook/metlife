@@ -32,20 +32,20 @@ main .highlight > div > div:first-child {
 
 main .highlight > div > div > h2 {
   margin: 0;
-  font-size: 24px;
+  font-size: var(--heading-font-size-m);
   font-weight: 500px;
 }
 
 main .highlight > div:last-child p {
   margin: 0;
-  font-size: 18px;
+  font-size: var(--body-font-size-s);
   font-weight: 400;
   line-height: 24px;
 }
 
 main .highlight a:any-link {
   color: #007ABC;
-  font-size: 16px;
+  font-size: var(--body-font-size-xs);
   font-weight: 600;
 }
 

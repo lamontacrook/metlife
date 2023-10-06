@@ -275,6 +275,17 @@ main .default-content-wrapper {
     max-width: 1200px;
     margin: auto;
   }
+
+  main .default-content-wrapper h2 {
+    font-family: georgia, times, serif;
+    font-size: var(--heading-font-size-l);
+    line-height: 36px;
+  }
+
+  main .default-content-wrapper p {
+    font-size: var(--body-font-size-s);
+    line-height: 32px;
+  }
 }
 
 /* section metadata */

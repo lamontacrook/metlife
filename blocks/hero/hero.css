@@ -24,7 +24,7 @@ main .hero .hero-content {
 main .hero .hero-content h1 {
   color: white;
   line-height: 39px;
-  font-size: 28px;
+  font-size: var(--heading-font-size-l);
   margin: auto;
   position: absolute;
   left: 50%;
@@ -35,7 +35,7 @@ main .hero .hero-content h1 {
 
 main .hero .hero-content p {
   color: white;
-  font-size: 16px;
+  font-size: var(--body-font-size-xs);
   font-weight: 400;
   margin: 12px auto;
   padding: 0;
@@ -80,7 +80,7 @@ main .hero .blue-box {
 
 .large-hero .hero .hero-content h1 {
   line-height: 30px;
-  font-size: 24px;
+  font-size: var(--heading-font-size-m);
   margin: 10px auto;
   position: unset;
   transform: unset;
@@ -117,7 +117,7 @@ main .hero .blue-box {
 @media (min-width: 900px) {
   main .hero .hero-content h1 {
     line-height: 40px;
-    font-size: 34px;
+    font-size: var(--heading-font-size-l);
   }
 }
 
@@ -136,7 +136,7 @@ main .hero .blue-box {
 
   main .hero .hero-content p {
     line-height: 32px;
-    font-size: 18px;
+    font-size: var(--body-font-size-s);
     font-weight: 400;
     margin: auto;
   }
@@ -166,7 +166,7 @@ main .hero .blue-box {
     transform: unset;
     width: unset;
     line-height: 50px;
-    font-size: 44px;
+    font-size: var(--heading-font-size-xl);
   }
 
   main .hero picture {
@@ -178,13 +178,13 @@ main .hero .blue-box {
   } 
 
   .large-hero .hero .hero-content h1 {
-    font-size: 44px;
+    font-size: var(--heading-font-size-xl);
     line-height: 50px;
     margin-bottom: 30px;
   }
 
   .large-hero .hero .hero-content p {
-    font-size: 18px;
+    font-size: var(--body-font-size-s);
     line-height: 30px;
     margin-bottom: 10px;
   }
