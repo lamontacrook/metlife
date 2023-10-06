@@ -96,6 +96,7 @@ async function loadFonts() {
  */
 function buildAutoBlocks(main) {
   try {
+    if (getMetadata('autoblock') === 'false') return;
     buildHeroBlock(main);
   } catch (error) {
     // eslint-disable-next-line no-console

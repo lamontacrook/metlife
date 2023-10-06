@@ -30,6 +30,19 @@
 
 .cards .cards-card-body {
   margin: 16px;
+  padding: 0 0 43px;
+}
+
+.cards .cards-card-body p {
+  font-size: var(--body-font-size-xs);
+  line-height: 21px;
+}
+
+.cards .cards-card-body p > strong,
+.cards .cards-card-body h2 {
+  line-height: 30px;
+  font-size: var(--heading-font-size-m);
+  font-weight: 500;
 }
 
 .cards .cards-card-image {
@@ -48,6 +61,6 @@
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  min-height: 212px;
-  max-height: 212px;
+  min-height: 255px;
+  max-height: 255px;
 }
