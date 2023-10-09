@@ -1,6 +1,4 @@
-/* block specific CSS goes here */
-
-main .hero-container>div {
+main .hero-container > div {
   max-width: unset;
 }
 
@@ -112,6 +110,84 @@ main .hero .blue-box {
   color: white;
   text-decoration: underline;
   padding: 5px;
+}
+
+.small-hero main .hero {
+  min-height: unset;
+}
+
+.small-hero main .hero > div:not(.blue-box) {
+  min-height: 299px;
+  max-height: 363px;
+  display: block;
+  background: transparent;
+  margin: 0;
+  width: 100vw;
+  max-width: unset;
+  padding: 0;
+}
+
+.small-hero main .hero img {
+  object-fit: cover;
+  min-width: 100%;
+  width: auto;
+  max-height: 363px;
+}
+
+.small-hero .hero .hero-content {
+  height: unset;
+  z-index: 0;
+  position: absolute;
+  max-width: 685px;
+  width: unset;
+  display: block;
+  margin: auto;
+  left: 35%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: left;
+}
+
+.small-hero .hero .hero-content h1 {
+  margin: unset;
+  text-align: left;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 30px;
+  transform: unset;
+  position: unset;
+  left: unset;
+  top: unset;
+}
+
+.small-hero .hero .hero-content h2 {
+  color: white;
+  line-height: 30px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+@media (min-width: 768px) {
+  .small-hero .hero .hero-content {
+    height: unset;
+    z-index: 0;
+    position: absolute;
+    max-width: 685px;
+    margin: auto;
+    left: 40%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+  } 
+
+  .small-hero .hero .hero-content h1 {
+    font-size: 44px;
+    line-height: 50px;
+  }
+
+  .small-hero .hero .hero-content h2 {
+    font-size: 18px;
+  }
 }
 
 @media (min-width: 900px) {
