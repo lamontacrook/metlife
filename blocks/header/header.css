@@ -66,6 +66,11 @@ header nav .nav-drop a:any-link {
   padding-left: 10px;
 }
 
+header nav .nav-sections > ul > li > a:any-link {
+  padding-left: 0;
+  line-height: 0;
+}
+
 /* hamburger */
 header nav .nav-hamburger {
   grid-area: hamburger;
