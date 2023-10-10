@@ -33,9 +33,14 @@
   padding: 0 0 43px;
 }
 
-.cards .cards-card-body p {
+.cards .cards-card-body ul {
+  list-style: disc;
+}
+
+.cards .cards-card-body p, 
+.cards .cards-card-body li {
   font-size: var(--body-font-size-xs);
-  line-height: 21px;
+  line-height: 28px;
 }
 
 .cards .cards-card-body p > strong,

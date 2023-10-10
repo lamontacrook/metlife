@@ -211,10 +211,10 @@ main .hero .blue-box {
   }
 
   main .hero .hero-content p {
-    line-height: 32px;
-    font-size: var(--body-font-size-s);
+    line-height: 26px;
+    font-size: var(--body-font-size-xs);
     font-weight: 400;
-    margin: auto;
+    margin: 10px auto;
   }
 
   main .hero img {
@@ -236,6 +236,7 @@ main .hero .blue-box {
   }
 
   main .hero .hero-content h1 {
+    margin: 10px auto;
     position: unset;
     left: unset;
     top: unset;
