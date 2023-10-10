@@ -137,7 +137,7 @@ export default async function decorate(block) {
     const panels = await fetchPanels();
 
     const navSections = nav.querySelector('.nav-sections');
-    if (navSections) {
+    if(navSections) {
       navSections.querySelectorAll(':scope > ul > li').forEach((navSection) => {
         if (navSection.querySelector('ul')) {
           navSection.classList.add('nav-drop');
